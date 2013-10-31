@@ -19,7 +19,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='yo_payments',
-    version='0.1.1',
+    version='0.1.2',
     description='Python Api Wrapper for the Yo Payments service',
     long_description=readme + '\n\n' + history,
     author='James Muranga',
