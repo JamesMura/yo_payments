@@ -19,7 +19,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='yo_payments',
-    version='0.1.0',
+    version='0.1.1',
     description='Python Api Wrapper for the Yo Payments service',
     long_description=readme + '\n\n' + history,
     author='James Muranga',
@@ -31,6 +31,7 @@ setup(
     package_dir={'yo_payments': 'yo_payments'},
     include_package_data=True,
     install_requires=[
+        "requests","xmltodict"
     ],
     license="BSD",
     zip_safe=False,

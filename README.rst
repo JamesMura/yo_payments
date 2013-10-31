@@ -5,9 +5,6 @@ Yo Payments
 .. image:: https://badge.fury.io/py/yo_payments.png
     :target: http://badge.fury.io/py/yo_payments
 
-.. image:: https://travis-ci.org/jamesmura/yo_payments.png?branch=master
-	:target: https://travis-ci.org/jamesmura/yo_payments
-
 .. image:: https://pypip.in/d/yo_payments/badge.png
 	:target: https://crate.io/packages/yo_payments?version=latest
 
@@ -20,10 +17,10 @@ Api Wrapper for the Yo Payments service
 Usage
 _____
 
-from yo_payments.yo_payments import Yo
+        from yo_payments.yo_payments import Yo
 
-api_request = Yo("username","password","method","api_url")
-result = api_request.make_request()
+        api_request = Yo("username","password","method","api_url")
+        result = api_request.make_request()
 
 Features
 --------
