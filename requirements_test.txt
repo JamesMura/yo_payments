@@ -3,4 +3,3 @@ responses
 tox
 coverage
 mock
-unittest2

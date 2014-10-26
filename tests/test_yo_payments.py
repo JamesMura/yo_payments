@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from unittest2 import TestCase
+from unittest import TestCase
 import unittest
 
 from mock import Mock, MagicMock
