@@ -26,26 +26,26 @@ setup(
     author_email='jmured@gmail.com',
     url='https://github.com/jamesmura/yo_payments',
     packages=[
-	'yo_payments',
+        'yo_payments',
     ],
     package_dir={'yo_payments': 'yo_payments'},
     include_package_data=True,
     install_requires=[
-        "requests","xmltodict"
+        "requests", "xmltodict"
     ],
     license="BSD",
     zip_safe=False,
     keywords='yo_payments',
     classifiers=[
-	'Development Status :: 2 - Pre-Alpha',
-	'Intended Audience :: Developers',
-	'License :: OSI Approved :: BSD License',
-	'Natural Language :: English',
-	"Programming Language :: Python :: 2",
-	'Programming Language :: Python :: 2.6',
-	'Programming Language :: Python :: 2.7',
-	'Programming Language :: Python :: 3',
-	'Programming Language :: Python :: 3.3',
+        'Development Status :: 2 - Pre-Alpha',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: BSD License',
+        'Natural Language :: English',
+        "Programming Language :: Python :: 2",
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.3',
     ],
     test_suite='tests',
 )
