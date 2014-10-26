@@ -11,6 +11,10 @@ Yo Payments
 .. image:: https://travis-ci.org/JamesMura/yo_payments.svg?branch=master
     :target: https://travis-ci.org/JamesMura/yo_payments
 
+
+.. image:: https://coveralls.io/repos/JamesMura/yo_payments/badge.png
+    :target: https://coveralls.io/r/JamesMura/yo_payments
+
 Api Wrapper for the Yo Payments service
 
 * Free software: MIT license
