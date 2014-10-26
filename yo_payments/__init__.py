@@ -77,9 +77,6 @@ class YoClient(object):
            extra_xml=self.extra_xml(extra_data))
         return data
 
-    def get_method(self):
-        return self.method
-
     def extra_xml(self, data):
         output = ""
         for key in data:
