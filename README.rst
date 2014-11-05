@@ -15,6 +15,8 @@ Yo Payments
 .. image:: https://coveralls.io/repos/JamesMura/yo_payments/badge.png
     :target: https://coveralls.io/r/JamesMura/yo_payments
 
+.. image:: https://badges.gitter.im/Join Chat.svg
+    :target: https://gitter.im/JamesMura/yo_payments?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 Api Wrapper for the Yo Payments service
 
 * Free software: MIT license
