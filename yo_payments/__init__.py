@@ -34,12 +34,12 @@ class YoResponse(object):
         try:
             self.message = data[AUTO_CREATE][RESPONSE][STATUS_MESSAGE]
             self.error_message = data[AUTO_CREATE][RESPONSE][ERROR_MESSAGE]
-            self.error_message_code = data[AUTO_CREATE][RESPONSE][ERROR_MESSAGE_CODE]
+            self.error_message_code = \
+                data[AUTO_CREATE][RESPONSE][ERROR_MESSAGE_CODE]
         except KeyError:
             self.message = None
             self.error_message = None
             self.error_message_code = None
-
 
     def is_ok(self):
         return self.status == OK
@@ -54,14 +54,16 @@ class YoClient(object):
     def parse_xml_response_to_dict(self, response):
         return xmltodict.parse(response.text)
 
-
     def make_request(self, method, **kwargs):
-        response = requests.post(self.url, data=self.get_xml_data(method, kwargs), headers=self.get_headers(),
+        response = requests.post(self.url,
+                                 data=self.get_xml_data(method, kwargs),
+                                 headers=self.get_headers(),
                                  verify=False)
         return YoResponse(self.parse_xml_response_to_dict(response))
 
     def get_headers(self):
-        return {'Content-Type': 'text/xml', 'Content-transfer-encoding:': 'text'}
+        return {'Content-Type': 'text/xml',
+                'Content-transfer-encoding:': 'text'}
 
     def get_xml_data(self, method, extra_data):
         data = """<?xml version="1.0" encoding="UTF-8"?>
@@ -85,7 +87,8 @@ class YoClient(object):
 
 
 class Yo(object):
-    def __init__(self, username, password, url="https://paymentsapi1.yo.co.ug/ybs/task.php"):
+    def __init__(self, username, password,
+                 url="https://paymentsapi1.yo.co.ug/ybs/task.php"):
         self.client = YoClient(username, password, url)
 
     def _valid_account(self, account):
@@ -96,12 +99,15 @@ class Yo(object):
         non_blocking_text = "TRUE" if non_blocking else "FALSE"
         return non_blocking_text
 
-    def withdraw_funds(self, amount, account, narrative, internal_reference=None, external_reference=None,
+    def withdraw_funds(self, amount, account,
+                       narrative, internal_reference=None,
+                       external_reference=None,
                        provider_reference_text=None,
                        non_blocking=False):
         self._valid_account(account)
         non_blocking_text = self._get_non_blocking_text(non_blocking)
-        extra_data = {AMOUNT: amount, ACCOUNT: account, NARRATIVE: narrative, NON_BLOCKING: non_blocking_text}
+        extra_data = {AMOUNT: amount, ACCOUNT: account,
+                      NARRATIVE: narrative, NON_BLOCKING: non_blocking_text}
         if internal_reference is not None:
             extra_data[INTERNAL_REFERENCE] = internal_reference
         if external_reference is not None:
@@ -109,5 +115,3 @@ class Yo(object):
         if provider_reference_text is not None:
             extra_data[PROVIDER_REFERENCE_TEXT] = provider_reference_text
         return self.client.make_request(ACDEPOSITFUNDS, **extra_data)
-
-
