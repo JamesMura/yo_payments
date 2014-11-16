@@ -2,6 +2,10 @@
 Usage
 ========
 
-To use Yo Payments in a project::
+To withdraw funds from an account::
 
-	import yo_payments
+    from yo_payments import Yo
+    yo_client = Yo(username,password)
+    yo_client.withdraw_funds(amount, account , narrative)
+
+
