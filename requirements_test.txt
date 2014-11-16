@@ -3,3 +3,4 @@ responses
 tox
 coverage
 mock
+flake8
