@@ -2,7 +2,7 @@
 Usage
 ========
 
-To withdraw funds from an account::
+To withdraw funds from an account with :func:`Yo.withdraw_funds`.
 
     from yo_payments import Yo
     yo_client = Yo(username,password)
