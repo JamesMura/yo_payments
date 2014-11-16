@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 from unittest import TestCase
 import unittest
-
 from mock import Mock, MagicMock
 
 import responses
@@ -25,7 +24,6 @@ class CustomTestCase(TestCase):
         self.username = "username"
         self.password = "password"
         self.url = "https://paymentsapi1.yo.co.ug/ybs/task.php"
-
 
     def create_test_client(self):
         client = YoClient(self.username, self.password, self.url)
@@ -74,7 +72,6 @@ class TestYoClient(CustomTestCase):
         xml_data = client.get_xml_data("method", {"name": "james"})
         self.assertTrue("<name>james</name>" in xml_data)
 
-
     def test_should_parse_the_xml_result_to_dict(self):
         client = self.create_test_client()
         content = """<?xml version="1.0" encoding="UTF-8"?>
@@ -95,7 +92,6 @@ class TestYoClient(CustomTestCase):
         self.assertTrue(RESPONSE in data[AUTO_CREATE])
         self.assertTrue(STATUS in data[AUTO_CREATE][RESPONSE])
         self.assertTrue("OK" == data[AUTO_CREATE][RESPONSE][STATUS])
-
 
     @responses.activate
     def test_response_should_have_status_message(self):
@@ -123,9 +119,12 @@ class YoTestCase(CustomTestCase):
         reason = "for some reason"
         Account = "+123"
         yo.withdraw_funds(200, Account, reason, internal_reference=reference)
-        yo.client.make_request.assert_called_with(self.get_method(), Amount=200,
-                                                  InternalReference=reference, Account=Account,
-                                                  NonBlocking='FALSE', Narrative=reason)
+        yo.client.make_request.assert_called_with(self.get_method(),
+                                                  Amount=200,
+                                                  InternalReference=reference,
+                                                  Account=Account,
+                                                  NonBlocking='FALSE',
+                                                  Narrative=reason)
 
     @responses.activate
     def test_should_setup_external_reference_if_set(self):
@@ -137,9 +136,12 @@ class YoTestCase(CustomTestCase):
         reason = "for some reason"
         Account = "+123"
         yo.withdraw_funds(200, Account, reason, external_reference=reference)
-        yo.client.make_request.assert_called_with(self.get_method(), Amount=200,
-                                                  ExternalReference=reference, Account=Account,
-                                                  NonBlocking='FALSE', Narrative=reason)
+        yo.client.make_request.assert_called_with(self.get_method(),
+                                                  Amount=200,
+                                                  ExternalReference=reference,
+                                                  Account=Account,
+                                                  NonBlocking='FALSE',
+                                                  Narrative=reason)
 
     def get_method(self):
         return yo_payments.ACDEPOSITFUNDS
@@ -150,14 +152,17 @@ class YoTestCase(CustomTestCase):
         yo = Yo("username", "password")
         mock = MagicMock()
         yo.client = mock
-        reference = "some reference"
+        ref = "some reference"
         reason = "for some reason"
-        Account = "+123"
-        yo.withdraw_funds(200, Account, reason, provider_reference_text=reference)
-        yo.client.make_request.assert_called_with(self.get_method(), Amount=200,
-                                                  ProviderReferenceText=reference, Account=Account,
-                                                  NonBlocking='FALSE', Narrative=reason)
-
+        account = "+123"
+        yo.withdraw_funds(200, account, reason,
+                          provider_reference_text=ref)
+        yo.client.make_request.assert_called_with(self.get_method(),
+                                                  Amount=200,
+                                                  ProviderReferenceText=ref,
+                                                  Account=account,
+                                                  NonBlocking='FALSE',
+                                                  Narrative=reason)
 
     if __name__ == '__main__':
         unittest.main()
