@@ -33,7 +33,7 @@ setup(
     install_requires=[
         "requests", "xmltodict"
     ],
-    license="BSD",
+    license="MIT",
     zip_safe=False,
     keywords='yo_payments',
     classifiers=[

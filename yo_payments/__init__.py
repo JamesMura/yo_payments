@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+Yo Payments API Wrapper
+"""
+
 ACDEPOSITFUNDS = "acdepositfunds"
 NON_BLOCKING = "NonBlocking"
 PROVIDER_REFERENCE_TEXT = "ProviderReferenceText"
@@ -17,6 +21,7 @@ RESPONSE = "Response"
 OK = "OK"
 STATUS = "Status"
 
+__title__ = "Yo Payments"
 __author__ = 'James Muranga'
 __email__ = 'jmured@gmail.com'
 __version__ = '0.1.0'
@@ -46,6 +51,9 @@ class YoResponse(object):
 
 
 class YoClient(object):
+    """
+    Wrapper on top of the requrests client to access the Yo Payments api.
+    """
     def __init__(self, username, password, url):
         self.username = username
         self.password = password
