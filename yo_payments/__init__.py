@@ -3,7 +3,9 @@
 """
 Yo Payments API Wrapper
 """
+import requests
 
+import xmltodict
 ACDEPOSITFUNDS = "acdepositfunds"
 NON_BLOCKING = "NonBlocking"
 PROVIDER_REFERENCE_TEXT = "ProviderReferenceText"
@@ -25,10 +27,6 @@ __title__ = "Yo Payments"
 __author__ = 'James Muranga'
 __email__ = 'jmured@gmail.com'
 __version__ = '0.1.0'
-
-import requests
-
-import xmltodict
 
 
 class YoResponse(object):
