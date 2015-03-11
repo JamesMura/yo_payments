@@ -26,7 +26,7 @@ STATUS = "Status"
 __title__ = "Yo Payments"
 __author__ = 'James Muranga'
 __email__ = 'jmured@gmail.com'
-__version__ = '0.1.3'
+__version__ = '0.1.4'
 
 
 class YoResponse(object):
