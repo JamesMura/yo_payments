@@ -107,7 +107,7 @@ class YoTestCase(CustomTestCase):
         self.setup_ok_response()
         with self.assertRaises(Exception):
             yo = Yo("username", "password")
-            yo.withdraw_funds(200, "123", "for some reason")
+            yo.withdraw_funds(200, "+123", "for some reason")
 
     @responses.activate
     def test_should_setup_internal_reference_if_set(self):
@@ -117,7 +117,7 @@ class YoTestCase(CustomTestCase):
         yo.client = mock
         reference = "some reference"
         reason = "for some reason"
-        Account = "+123"
+        Account = "123"
         yo.withdraw_funds(200, Account, reason, internal_reference=reference)
         yo.client.make_request.assert_called_with(self.get_method(),
                                                   Amount=200,
@@ -134,7 +134,7 @@ class YoTestCase(CustomTestCase):
         yo.client = mock
         reference = "some reference"
         reason = "for some reason"
-        Account = "+123"
+        Account = "123"
         yo.withdraw_funds(200, Account, reason, external_reference=reference)
         yo.client.make_request.assert_called_with(self.get_method(),
                                                   Amount=200,
@@ -154,7 +154,7 @@ class YoTestCase(CustomTestCase):
         yo.client = mock
         ref = "some reference"
         reason = "for some reason"
-        account = "+123"
+        account = "123"
         yo.withdraw_funds(200, account, reason,
                           provider_reference_text=ref)
         yo.client.make_request.assert_called_with(self.get_method(),

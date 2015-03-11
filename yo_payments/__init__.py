@@ -98,8 +98,8 @@ class Yo(object):
         self.client = YoClient(username, password, url)
 
     def _valid_account(self, account):
-        if not account.startswith("+"):
-            raise Exception("Account should start with +")
+        if account.startswith("+"):
+            raise Exception("Account should not start with +")
 
     def _get_non_blocking_text(self, non_blocking):
         non_blocking_text = "TRUE" if non_blocking else "FALSE"
