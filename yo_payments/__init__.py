@@ -26,7 +26,7 @@ STATUS = "Status"
 __title__ = "Yo Payments"
 __author__ = 'James Muranga'
 __email__ = 'jmured@gmail.com'
-__version__ = '0.1.4'
+__version__ = '0.1.6'
 
 
 class YoResponse(object):
@@ -69,7 +69,7 @@ class YoClient(object):
 
     def get_headers(self):
         return {'Content-Type': 'text/xml',
-                'Content-transfer-encoding:': 'text'}
+                'Content-Transfer-Encoding': 'text'}
 
     def get_xml_data(self, method, extra_data):
         data = """<?xml version="1.0" encoding="UTF-8"?>
